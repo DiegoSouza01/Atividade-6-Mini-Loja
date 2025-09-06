@@ -31,6 +31,14 @@ const OptimizedImage = ({ src, alt, width, height, ...props }) => {
         }}
         {...props}
       />
+      {error && (
+        <div
+          className="product-image-placeholder"
+          aria-label={`Imagem não disponível para ${alt}`}
+        >
+          🎮
+        </div>
+      )}
     </>
   );
 };

@@ -1,47 +1,29 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import Skeleton from "./Skeleton";
 import OptimizedImage from "./OptimizedImage";
 
-const ProductCard = ({ product, onAddToCart, loading = false }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageError, setImageError] = useState(false);
+const ProductCard = ({ product, onAddToCart }) => {
+  const [isAdding, setIsAdding] = useState(false);
 
-  if (loading) {
-    return (
-      <div className="product-card" aria-hidden="true">
-        <Skeleton type="image" />
-        <div className="product-info">
-          <Skeleton type="text" width="80%" />
-          <Skeleton type="text" width="60%" />
-          <Skeleton type="text" width="40%" />
-          <div className="product-actions">
-            <Skeleton type="button" />
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const handleAddToCart = () => {
+    setIsAdding(true);
 
-  const handleImageLoad = () => {
-    setImageLoaded(true);
-    setImageError(false);
-  };
-
-  const handleImageError = () => {
-    setImageError(true);
-    setImageLoaded(true);
+    setTimeout(() => {
+      onAddToCart(product);
+      setIsAdding(false);
+    }, 1000);
   };
 
   const renderRating = () => {
     const stars = [];
+    // Converte o rating para um número, garantindo a comparação correta.
+    const ratingValue = Number(product.rating);
+
     for (let i = 0; i < 5; i++) {
       stars.push(
         <span
           key={i}
-          className={`product-rating-star ${
-            i < product.rating ? "filled" : ""
-          }`}
+          className={`product-rating-star ${i < ratingValue ? "filled" : ""}`}
           aria-hidden="true"
         >
           ★
@@ -64,7 +46,7 @@ const ProductCard = ({ product, onAddToCart, loading = false }) => {
     <div className="product-card">
       <div className="product-image-container">
         <OptimizedImage
-          src={product.image}
+          src={product.img}
           alt={`Capa do jogo ${product.title}`}
           width="100%"
           height="auto"
@@ -81,12 +63,13 @@ const ProductCard = ({ product, onAddToCart, loading = false }) => {
         <div className="product-actions">
           <Button
             variant="solid"
-            onClick={() => onAddToCart(product)}
+            onClick={handleAddToCart}
+            loading={isAdding}
             aria-label={`Adicionar ${
               product.title
             } ao carrinho por R$ ${product.price.toFixed(2)}`}
           >
-            Adicionar ao Carrinho
+            Adicionar ao carrinho
           </Button>
         </div>
       </div>

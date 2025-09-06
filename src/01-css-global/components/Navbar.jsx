@@ -11,6 +11,7 @@ const Navbar = ({ theme, toggleTheme, cartCount }) => {
           aria-label={`Mudar para tema ${
             theme === "light" ? "escuro" : "claro"
           }`}
+          aria-live="polite"
         >
           {theme === "light" ? "⚪" : "⚫"}
         </button>
@@ -18,7 +19,9 @@ const Navbar = ({ theme, toggleTheme, cartCount }) => {
           className="cart-badge"
           aria-label={`Carrinho de compras com ${cartCount} itens`}
         >
-          🛒
+          <span role="img" aria-label="Carrinho de compras">
+            🛒
+          </span>
           {cartCount > 0 && (
             <span className="cart-badge-count">{cartCount}</span>
           )}
