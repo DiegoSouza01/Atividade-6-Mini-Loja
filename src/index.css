@@ -1,0 +1,75 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos do tema Crash - use classes específicas */
+.crash-theme {
+  --ff-primary: #ff8c00;
+  --ff-secondary: #6a5acd;
+  --ff-background: #f5f5dc;
+  --ff-surface: #ffffff;
+  --ff-text: #2f4f4f;
+  --ff-error: #dc143c;
+  --ff-success: #228b22;
+  --ff-warning: #ffd700;
+  --ff-rating: #ff8c00;
+}
+
+.crash-theme.dark {
+  --ff-primary: #ffa500;
+  --ff-secondary: #7b68ee;
+  --ff-background: #2f4f4f;
+  --ff-surface: #3a3a3a;
+  --ff-text: #f5f5dc;
+}
+
+/* Animações do tema Crash */
+@keyframes crash-bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%,
+  43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+.animate-crash-bounce {
+  animation: crash-bounce 1s ease infinite;
+}
+
+@keyframes spin-wumpa {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.animate-spin-wumpa {
+  animation: spin-wumpa 2s linear infinite;
+}
+
+/* Gradientes temáticos */
+.bg-crash-gradient {
+  background: linear-gradient(135deg, #ff9800 0%, #ffb74d 50%, #ff9800 100%);
+}
+
+.bg-crash-dark-gradient {
+  background: linear-gradient(135deg, #3e2723 0%, #5d4037 50%, #3e2723 100%);
+}

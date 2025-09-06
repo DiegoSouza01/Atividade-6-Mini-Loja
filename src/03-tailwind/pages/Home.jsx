@@ -1,35 +1,72 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
-import Skeleton from "../components/Skeleton";
-import { products } from "../data";
 
 const Home = () => {
-  const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem("crash-theme");
-    return savedTheme || "light";
-  });
-  const [cart, setCart] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [cart, setCart] = useState([]);
+  const [showCartNotification, setShowCartNotification] = useState(false);
 
   useEffect(() => {
-    document.documentElement.className = theme;
-    localStorage.setItem("crash-theme", theme);
-  }, [theme]);
+    const mockProducts = [
+      {
+        id: 1,
+        title: "Crash Twinsanity American",
+        price: 99.9,
+        rating: 4,
+        tag: "Promo",
+        image: "/assets/CrashTwinsanityAmerican.webp",
+      },
+      {
+        id: 2,
+        title: "Crash Team Racing Nitro-Fueled",
+        price: 129.9,
+        rating: 5,
+        tag: "Novo",
+        image: "/assets/Crash_Team_Racing_Nitro-Fueled_cover_art.webp",
+      },
+      {
+        id: 3,
+        title: "Crash Bandicoot 4: It's About Time",
+        price: 199.9,
+        rating: 4,
+        tag: "Clássico",
+        image: "/assets/Crash-Bandicoot-4-capa.webp",
+      },
+      {
+        id: 4,
+        title: "Crash Bandicoot: Mind Over Mutant",
+        price: 69.9,
+        rating: 3,
+        tag: "Novo",
+        image: "/assets/Crash_Mind_over_Mutant_capa.webp",
+      },
+      {
+        id: 5,
+        title: "Crash Team Rumble",
+        price: 79.9,
+        rating: 3,
+        tag: "Promo",
+        image: "/assets/Crash_Team_Rumble_cover_art.webp",
+      },
+      {
+        id: 6,
+        title: "Crash of the Titans",
+        price: 59.9,
+        rating: 4,
+        tag: "Promo",
+        image: "/assets/Crash_of_the_Titans.webp",
+      },
+    ];
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
+    setTimeout(() => {
+      setProducts(mockProducts);
       setLoading(false);
     }, 1500);
-
-    return () => clearTimeout(timer);
   }, []);
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
-
-  const addToCart = (product) => {
+  const handleAddToCart = (product) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === product.id);
 
@@ -39,42 +76,56 @@ const Home = () => {
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
+      } else {
+        return [...prevCart, { ...product, quantity: 1 }];
       }
-
-      return [...prevCart, { ...product, quantity: 1 }];
     });
+
+    // Mostrar notificação
+    setShowCartNotification(true);
+    setTimeout(() => setShowCartNotification(false), 2000);
   };
 
-  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+  const getTotalCartItems = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0);
+  };
+
+  const handleCartClick = () => {
+    alert(
+      `🛒 Carrinho Crash\nItens: ${getTotalCartItems()}\nTotal: R$ ${cart
+        .reduce((total, item) => total + item.price * item.quantity, 0)
+        .toFixed(2)}`
+    );
+  };
 
   return (
-    <div className="bg-gradient-to-br from-orange-50 to-yellow-50 dark:bg-gray-900 min-h-screen text-gray-900 dark:text-white transition-colors duration-200">
-      <Navbar theme={theme} toggleTheme={toggleTheme} cartCount={cartCount} />
+    <div className="min-h-screen bg-crash-sand dark:bg-crash-brown-900 transition-colors duration-200">
+      <Navbar cartCount={getTotalCartItems()} onCartClick={handleCartClick} />
 
-      <div className="container mx-auto p-4 pt-[90px] lg:p-6 lg:pt-[100px] max-w-screen-xl">
-        <h1 className="text-center text-3xl font-bold mb-6 text-orange-500 dark:text-orange-300">
-          🍊 Crash Bandicoot Collection
+      {showCartNotification && (
+        <div className="fixed top-20 right-4 bg-crash-success text-white px-4 py-2 rounded-lg shadow-lg z-50 animate-bounce-in border-2 border-crash-green-300">
+          ✅ Fruta Wumpa adicionada ao carrinho!
+        </div>
+      )}
+      <div className="pt-24 pb-12 px-4 max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-center text-crash-primary dark:text-crash-orange-400 mb-8 animate-pulse">
+          🎮 LOJA CRASH BANDICOOT 🍊
         </h1>
+
+        <p className="text-center text-crash-brown-600 dark:text-crash-orange-200 mb-8 text-lg">
+          Descubra os melhores jogos do marsupial mais famoso dos videogames!
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {loading
-            ? Array.from({ length: 8 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 animate-pulse"
-                >
-                  <div className="w-full aspect-square bg-gray-300 dark:bg-gray-700 rounded-lg mb-4"></div>
-                  <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded mb-2"></div>
-                  <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-3/4 mb-2"></div>
-                  <div className="h-4 bg-gray-300 dark:bg-gray-700 rounded w-1/2 mb-4"></div>
-                  <div className="h-10 bg-gray-300 dark:bg-gray-700 rounded"></div>
-                </div>
+            ? Array.from({ length: 6 }).map((_, index) => (
+                <ProductCard key={index} loading={true} />
               ))
             : products.map((product) => (
                 <ProductCard
                   key={product.id}
                   product={product}
-                  onAddToCart={addToCart}
+                  onAddToCart={handleAddToCart}
                 />
               ))}
         </div>

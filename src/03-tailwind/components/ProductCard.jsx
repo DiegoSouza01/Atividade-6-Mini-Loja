@@ -1,130 +1,120 @@
 import React, { useState } from "react";
-import Button from "./Button";
-import Skeleton from "./Skeleton";
-// import styles from "./ProductCard.module.css"; <-- Remova esta linha
+import OptimizedImage from "./OptimizedImage";
 
-const ProductCard = ({ product, onAddToCart, loading = false }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageError, setImageError] = useState(false);
+const ProductCard = ({ product, loading = false, onAddToCart }) => {
+  const [adding, setAdding] = useState(false);
 
   if (loading) {
     return (
-      <div
-        className="bg-white rounded-lg shadow-md p-4 animate-pulse"
-        aria-hidden="true"
-      >
-        <Skeleton type="image" />
-        <div className="mt-4">
-          <Skeleton type="text" width="80%" />
-          <Skeleton type="text" width="60%" />
-          <Skeleton type="text" width="40%" />
-          <div className="mt-4">
-            <Skeleton type="button" />
-          </div>
+      <div className="bg-white dark:bg-crash-brown-800 rounded-lg shadow-md dark:shadow-crash-brown-900 overflow-hidden border-2 border-crash-orange-200 dark:border-crash-brown-600 animate-pulse transition-colors duration-200">
+        <div className="w-full h-64 bg-crash-orange-100 dark:bg-crash-brown-600"></div>
+        <div className="p-4 space-y-3">
+          <div className="h-4 bg-crash-orange-200 dark:bg-crash-brown-500 rounded"></div>
+          <div className="h-6 bg-crash-orange-200 dark:bg-crash-brown-500 rounded w-1/2"></div>
+          <div className="h-4 bg-crash-orange-200 dark:bg-crash-brown-500 rounded w-1/3"></div>
+          <div className="h-10 bg-crash-orange-200 dark:bg-crash-brown-500 rounded"></div>
         </div>
       </div>
     );
   }
 
-  const handleImageLoad = () => {
-    setImageLoaded(true);
-    setImageError(false);
-  };
-
-  const handleImageError = () => {
-    setImageError(true);
-    setImageLoaded(true);
-  };
-
-  const renderRating = () => {
-    return (
-      <div
-        className="flex gap-1"
-        aria-label={`Classificação: ${product.rating} estrelas de 5`}
-      >
-        {[1, 2, 3, 4, 5].map((star) => (
-          <span
-            key={star}
-            className={`text-lg ${
-              star <= product.rating ? "text-yellow-400" : "text-gray-300"
-            }`}
-          >
-            ★
-          </span>
-        ))}
-        <span className="sr-only">{product.rating} estrelas de 5</span>
-      </div>
-    );
-  };
-
-  const renderTag = () => {
-    if (!product.tag) return null;
-
-    const tagStyles = {
-      Novo: "bg-green-500 text-white",
-      Promo: "bg-red-500 text-white",
-      Clássico: "bg-blue-500 text-white",
-      Party: "bg-purple-500 text-white",
-      Coleção: "bg-orange-500 text-white",
-      Remaster: "bg-cyan-500 text-white",
-    };
-
-    return (
+  const renderStars = (rating) => {
+    return Array.from({ length: 5 }, (_, i) => (
       <span
-        className={`absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-bold ${
-          tagStyles[product.tag] || "bg-gray-500 text-white"
-        }`}
+        key={i}
+        className={
+          i < rating
+            ? "text-crash-warning"
+            : "text-crash-orange-200 dark:text-crash-brown-600"
+        }
       >
-        {product.tag}
+        ⭐
       </span>
-    );
+    ));
+  };
+
+  const getTagClass = (tag) => {
+    switch (tag) {
+      case "Novo":
+        return "bg-crash-success text-white";
+      case "Promo":
+        return "bg-crash-warning text-crash-brown-900";
+      case "Clássico":
+        return "bg-crash-purple-500 text-white";
+      case "Wumpa":
+        return "bg-crash-primary text-white";
+      default:
+        return "bg-crash-orange-100 dark:bg-crash-brown-600 text-crash-brown-800 dark:text-white";
+    }
+  };
+
+  const handleAddToCart = async () => {
+    setAdding(true);
+    await new Promise((resolve) => setTimeout(resolve, 800));
+    onAddToCart(product);
+    setAdding(false);
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col h-full relative transform transition-all duration-200 hover:scale-105 hover:shadow-lg focus-within:ring-2 focus-within:ring-orange-500 focus-within:outline-none">
-      <div className="w-full aspect-square relative overflow-hidden">
-        {!imageLoaded && !imageError && <Skeleton type="image" />}
-        {imageError ? (
-          <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
-            ⚔️
-          </div>
-        ) : (
-          <img
+    <div className="bg-white dark:bg-crash-brown-800 rounded-lg shadow-md dark:shadow-crash-brown-900 overflow-hidden border-2 border-crash-orange-200 dark:border-crash-brown-600 hover:shadow-lg dark:hover:shadow-crash-brown-700 transition-all duration-200 transform hover:-translate-y-1 hover:scale-105">
+      <div className="w-full h-64 relative">
+        {product.image ? (
+          <OptimizedImage
             src={product.image}
-            alt={`Capa do jogo ${product.title}`}
-            className="w-full h-full object-cover"
-            onLoad={handleImageLoad}
-            onError={handleImageError}
-            loading="lazy"
-            style={{ display: imageLoaded ? "block" : "none" }}
+            alt={product.title}
+            className="w-full h-full"
           />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center bg-crash-orange-50 dark:bg-crash-brown-700 text-5xl">
+            🍊
+          </div>
         )}
       </div>
 
-      <div className="p-4 flex flex-col justify-between flex-grow">
-        <div>
-          <h3
-            className="text-lg font-bold text-gray-800 mb-1 truncate"
-            title={product.title}
+      <div className="p-4">
+        {product.tag && (
+          <span
+            className={`text-xs font-bold uppercase px-2 py-1 rounded-full ${getTagClass(
+              product.tag
+            )} mb-2 inline-block`}
           >
-            {product.title}
-          </h3>
-          <div className="text-xl font-bold text-gray-900 mb-2">
-            R$ {product.price.toFixed(2)}
-          </div>
-          {renderRating()}
-          {renderTag()}
+            {product.tag}
+          </span>
+        )}
+
+        <h3 className="text-lg font-semibold text-crash-dark dark:text-crash-orange-100 mb-2 line-clamp-2 min-h-[3rem]">
+          {product.title}
+        </h3>
+
+        <div className="flex items-center mb-2">
+          <div className="flex mr-2">{renderStars(product.rating)}</div>
+          <span className="text-sm text-crash-brown-600 dark:text-crash-orange-200">
+            ({product.rating}/5)
+          </span>
         </div>
-        <div className="mt-4">
-          <Button
-            onClick={() => onAddToCart(product)}
-            aria-label={`Adicionar ${
-              product.title
-            } ao carrinho por R$ ${product.price.toFixed(2)}`}
-          >
-            Adicionar ao Carrinho
-          </Button>
-        </div>
+
+        <p className="text-xl font-bold text-crash-primary dark:text-crash-orange-400 mb-3">
+          🪙 R$ {product.price.toFixed(2)}
+        </p>
+
+        <button
+          onClick={handleAddToCart}
+          disabled={adding}
+          className={`w-full font-bold py-3 px-4 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-crash-primary focus:ring-opacity-50 border-2 ${
+            adding
+              ? "bg-crash-brown-300 dark:bg-crash-brown-600 text-crash-brown-600 border-crash-brown-300 cursor-not-allowed"
+              : "bg-crash-primary hover:bg-crash-orange-600 dark:bg-crash-orange-500 dark:hover:bg-crash-orange-600 text-white border-crash-orange-500 hover:border-crash-orange-600"
+          }`}
+        >
+          {adding ? (
+            <div className="flex items-center justify-center">
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+              Adicionando...
+            </div>
+          ) : (
+            "🛒 Adicionar ao Carrinho"
+          )}
+        </button>
       </div>
     </div>
   );

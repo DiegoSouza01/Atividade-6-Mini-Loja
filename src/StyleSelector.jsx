@@ -1,4 +1,4 @@
-// src/StyleSelector.jsx
+// src/components/StyleSelector.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,12 +7,20 @@ const StyleSelector = () => {
   const navigate = useNavigate();
 
   const styles = [
-    { id: "css-global", name: "CSS Global", path: "/01-css-global" },
-    { id: "css-modules", name: "CSS Modules", path: "/02-css-modules" },
-    { id: "tailwind", name: "Tailwind CSS", path: "/03-tailwind" },
+    {
+      id: "css-global",
+      name: "Final Fantasy (CSS Global)",
+      path: "/01-css-global",
+    },
+    {
+      id: "css-modules",
+      name: "Dark Souls (CSS Modules)",
+      path: "/02-css-modules",
+    },
+    { id: "tailwind", name: "Crash (Tailwind CSS)", path: "/03-tailwind" },
     {
       id: "styled-components",
-      name: "Styled Components",
+      name: "Spyro (Styled Components)",
       path: "/04-styled-components",
     },
   ];
