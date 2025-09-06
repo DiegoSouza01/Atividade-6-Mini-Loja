@@ -1,11 +1,11 @@
 export const products = [
   {
     id: 1,
-    title: "Crash Bandicoot N. Sane Trilogy",
+    title: "Crash Twinsanity American",
     price: 179.99,
     rating: 5,
     tag: "Remaster",
-    image: "/assets/crash/crash_n_sane_trilogy.jpg",
+    image: "/assets/CrashTwinsanityAmerican.webp",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const products = [
     price: 249.99,
     rating: 5,
     tag: "Novo",
-    image: "/assets/crash/crash_4.jpg",
+    image: "/assets/Crash-Bandicoot-4-capa.webp",
   },
   {
     id: 3,
@@ -21,15 +21,15 @@ export const products = [
     price: 199.99,
     rating: 4,
     tag: "Promo",
-    image: "/assets/crash/crash_racing.jpg",
+    image: "/assets/Crash_Team_Racing_Nitro-Fueled_cover_art.webp",
   },
   {
     id: 4,
-    title: "Crash Bandicoot: The Wrath of Cortex",
+    title: "Crash Team Rumble",
     price: 149.99,
     rating: 3,
     tag: "Clássico",
-    image: "/assets/crash/crash_wrath.jpg",
+    image: "/assets/Crash_Team_Rumble_cover_art.webp",
   },
   {
     id: 5,
@@ -37,14 +37,14 @@ export const products = [
     price: 129.99,
     rating: 4,
     tag: "Party",
-    image: "/assets/crash/crash_bash.jpg",
+    image: "/assets/Crash_of_the_Titans.webp",
   },
   {
     id: 6,
-    title: "Crash Bandicoot Bundle Collection",
-    price: 399.99,
+    title: "Crash Mind over Mutant",
+    price: 99.99,
     rating: 5,
     tag: "Coleção",
-    image: "/assets/crash/crash_bundle.jpg",
+    image: "/assets/Crash_Mind_over_Mutant_capa.webp",
   },
 ];

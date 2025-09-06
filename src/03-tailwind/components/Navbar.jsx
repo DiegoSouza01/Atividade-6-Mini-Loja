@@ -1,44 +1,31 @@
 import React from "react";
 
 const Navbar = ({ theme, toggleTheme, cartCount }) => {
-  const isDark = theme === "dark";
-
   return (
-    <nav
-      className={`sticky top-0 z-50 px-8 py-4 flex justify-between items-center transition-colors duration-200 ${
-        isDark
-          ? "bg-gray-900 border-b border-orange-600 text-white"
-          : "bg-white border-b border-orange-400 text-gray-900 shadow-md"
-      }`}
-    >
-      <div className="text-xl font-bold text-orange-500 font-comic">
-        🍊 Crash Emporium
+    <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-4 lg:px-8 bg-white dark:bg-gray-800 shadow-md transition-colors duration-200">
+      <div className="text-xl font-bold text-orange-500 dark:text-orange-300">
+        Crash Bandicoot Shop
       </div>
-
-      <div className="flex items-center gap-4">
+      <div className="flex items-center space-x-4">
         <button
+          className="text-2xl hover:scale-110 transition-transform duration-200"
           onClick={toggleTheme}
-          className={`p-2 rounded-lg transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-orange-500 ${
-            isDark
-              ? "bg-orange-500 text-white"
-              : "bg-orange-100 text-orange-600"
+          aria-label={`Mudar para tema ${
+            theme === "light" ? "escuro" : "claro"
           }`}
-          aria-label={`Mudar para tema ${isDark ? "claro" : "escuro"}`}
+          aria-live="polite"
         >
-          {isDark ? "☀️" : "🌙"}
+          {theme === "light" ? "⚪" : "⚫"}
         </button>
-
         <button
-          className="relative p-2 rounded-lg transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-orange-500"
-          aria-label={`Carrinho com ${cartCount} itens`}
+          className="relative text-2xl hover:scale-110 transition-transform duration-200"
+          aria-label={`Carrinho de compras com ${cartCount} itens`}
         >
-          🛒
+          <span role="img" aria-label="Carrinho de compras">
+            🛒
+          </span>
           {cartCount > 0 && (
-            <span
-              className={`absolute -top-1 -right-1 w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center ${
-                isDark ? "bg-red-500 text-white" : "bg-red-500 text-white"
-              }`}
-            >
+            <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
               {cartCount}
             </span>
           )}

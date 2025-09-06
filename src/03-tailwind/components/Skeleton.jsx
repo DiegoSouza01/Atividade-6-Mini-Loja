@@ -1,20 +1,23 @@
 import React from "react";
 
-const Skeleton = ({ type = "text", width = "w-full", height = "h-4" }) => {
-  const getClasses = () => {
-    switch (type) {
-      case "image":
-        return "w-full aspect-square bg-gray-300 dark:bg-gray-600 rounded-lg animate-pulse";
-      case "text":
-        return `bg-gray-300 dark:bg-gray-600 rounded animate-pulse ${width} ${height}`;
-      case "button":
-        return "w-full h-10 bg-gray-300 dark:bg-gray-600 rounded-md animate-pulse";
-      default:
-        return `bg-gray-300 dark:bg-gray-600 rounded animate-pulse ${width} ${height}`;
-    }
+const Skeleton = ({ type = "text", width, height, style }) => {
+  const baseClasses = "animate-pulse bg-gray-300 dark:bg-gray-700 rounded-md";
+
+  const typeClasses = {
+    text: "h-4 w-full mb-2",
+    image: "w-full aspect-square", // ← Mude de h-48 para aspect-square
+    button: "w-full h-10",
   };
 
-  return <div className={getClasses()} aria-hidden="true" />;
+  return (
+    <div
+      className={`${baseClasses} ${typeClasses[type] || ""} ${
+        width ? `w-[${width}]` : ""
+      } ${height ? `h-[${height}]` : ""}`}
+      style={{ width, height, ...style }}
+      aria-hidden="true"
+    />
+  );
 };
 
 export default Skeleton;
