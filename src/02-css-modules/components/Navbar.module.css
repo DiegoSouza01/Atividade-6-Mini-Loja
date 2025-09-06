@@ -2,23 +2,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--ds-spacing-md) var(--ds-spacing-xl);
+  padding: var(--ds-spacing-md) var(--ds-spacing-lg);
   background-color: var(--ds-surface);
   box-shadow: var(--ds-shadow-sm);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   transition: var(--ds-transition);
-  border-bottom: 2px solid var(--ds-primary);
 }
 
 .navbarLogo {
   font-size: 1.5rem;
   font-weight: bold;
   color: var(--ds-primary);
-  font-family: "Times New Roman", serif;
+  text-shadow: var(--ds-text-shadow);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  font-family: "Times New Roman", Times, serif; /* Fonte que remete a Dark Souls */
 }
 
 .navbarActions {
@@ -28,67 +29,43 @@
 }
 
 .themeToggle {
-  background: none;
+  background: transparent;
   border: none;
+  font-size: 1.5rem;
   cursor: pointer;
-  padding: var(--ds-spacing-sm);
-  border-radius: var(--ds-radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ds-text);
-  transition: var(--ds-transition);
-  font-size: 1.2rem;
+  padding: var(--ds-spacing-xs);
+  transition: transform 0.2s ease-in-out;
 }
 
 .themeToggle:hover {
-  background-color: rgba(139, 0, 0, 0.1);
   transform: scale(1.1);
-}
-
-.themeToggle:focus-visible {
-  outline: 2px solid var(--ds-primary);
-  outline-offset: 2px;
 }
 
 .cartBadge {
   position: relative;
-  background: none;
+  background: transparent;
   border: none;
+  font-size: 1.5rem;
   cursor: pointer;
-  padding: var(--ds-spacing-sm);
-  border-radius: var(--ds-radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ds-text);
-  transition: var(--ds-transition);
-  font-size: 1.2rem;
+  padding: var(--ds-spacing-xs);
+  transition: transform 0.2s ease-in-out;
 }
 
 .cartBadge:hover {
-  background-color: rgba(139, 0, 0, 0.1);
   transform: scale(1.1);
-}
-
-.cartBadge:focus-visible {
-  outline: 2px solid var(--ds-primary);
-  outline-offset: 2px;
 }
 
 .cartBadgeCount {
   position: absolute;
   top: -5px;
   right: -5px;
-  background-color: var(--ds-error);
-  color: white;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
+  background-color: var(--ds-primary);
+  color: var(--ds-text);
+  border-radius: var(--ds-radius-full);
+  padding: 0.1rem 0.4rem;
+  font-size: 0.75rem;
   font-weight: bold;
-  border: 1px solid white;
+  pointer-events: none;
+  min-width: 1.25rem;
+  text-align: center;
 }

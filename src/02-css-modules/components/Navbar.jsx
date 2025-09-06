@@ -19,7 +19,7 @@ const Navbar = ({ theme, toggleTheme, cartCount }) => {
           className={styles.cartBadge}
           aria-label={`Carrinho de compras com ${cartCount} itens`}
         >
-          ⚔️
+          🐴
           {cartCount > 0 && (
             <span className={styles.cartBadgeCount}>{cartCount}</span>
           )}

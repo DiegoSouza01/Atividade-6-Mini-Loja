@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import StyleSelector from "./StyleSelector";
+
+// Importa os componentes Home de cada diretório
 import CssGlobal from "./01-css-global/pages/Home";
 import CssModules from "./02-css-modules/pages/Home";
 import Tailwind from "./03-tailwind/pages/Home";
 import StyledComponents from "./04-styled-components/pages/Home";
-import { useContext } from "react";
 
 function App() {
   return (
