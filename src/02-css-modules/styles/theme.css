@@ -1,0 +1,89 @@
+:root {
+  /* Cores do tema Dark Souls (claro) */
+  --ds-primary: #8b0000;
+  --ds-secondary: #654321;
+  --ds-accent: #daa520;
+  --ds-background: #f5f5dc;
+  --ds-surface: #fffaf0;
+  --ds-text: #2c3e50;
+  --ds-text-secondary: #7f8c8d;
+  --ds-border: #a9a9a9;
+  --ds-rating: #daa520;
+  --ds-success: #228b22;
+  --ds-warning: #ff8c00;
+  --ds-error: #8b0000;
+
+  /* Espaçamentos */
+  --ds-spacing-xs: 0.25rem;
+  --ds-spacing-sm: 0.5rem;
+  --ds-spacing-md: 1rem;
+  --ds-spacing-lg: 1.5rem;
+  --ds-spacing-xl: 2rem;
+
+  /* Bordas */
+  --ds-radius-sm: 0.25rem;
+  --ds-radius-md: 0.5rem;
+  --ds-radius-lg: 1rem;
+
+  /* Sombras */
+  --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --ds-shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  --ds-shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+
+  /* Transições */
+  --ds-transition: all 0.2s ease-in-out;
+}
+
+[data-theme="dark"] {
+  /* Cores do tema Dark Souls (escuro) */
+  --ds-primary: #8b0000;
+  --ds-secondary: #654321;
+  --ds-accent: #daa520;
+  --ds-background: #1a1a1a;
+  --ds-surface: #2c2c2c;
+  --ds-text: #e6e6e6;
+  --ds-text-secondary: #bdc3c7;
+  --ds-border: #555555;
+  --ds-rating: #daa520;
+  --ds-success: #32cd32;
+  --ds-warning: #ff8c00;
+  --ds-error: #dc143c;
+
+  /* Ajustes de sombra para modo escuro */
+  --ds-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --ds-shadow-md: 0 3px 6px rgba(0, 0, 0, 0.6), 0 3px 6px rgba(0, 0, 0, 0.5);
+  --ds-shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.7), 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--ds-spacing-md);
+}
+
+/* Grid de produtos responsivo */
+.productsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--ds-spacing-lg);
+  padding: var(--ds-spacing-lg) 0;
+}
+
+@media (min-width: 481px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 769px) {
+  .productsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  .productsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
