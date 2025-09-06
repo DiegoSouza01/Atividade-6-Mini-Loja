@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import Skeleton from "./Skeleton";
+import OptimizedImage from "./OptimizedImage";
 
 const ProductCard = ({ product, onAddToCart, loading = false }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -47,22 +48,13 @@ const ProductCard = ({ product, onAddToCart, loading = false }) => {
         </span>
       );
     }
-    return (
-      <div
-        className="product-rating"
-        aria-label={`Classificação: ${product.rating} estrelas de 5`}
-      >
-        {stars}
-        <span className="sr-only">{product.rating} estrelas de 5</span>
-      </div>
-    );
+    return <div className="product-rating">{stars}</div>;
   };
 
   const renderTag = () => {
     if (!product.tag) return null;
-
     return (
-      <span className={`product-tag product-tag-${product.tag.toLowerCase()}`}>
+      <span className={`product-tag ${product.tag.toLowerCase()}`}>
         {product.tag}
       </span>
     );
@@ -71,39 +63,21 @@ const ProductCard = ({ product, onAddToCart, loading = false }) => {
   return (
     <div className="product-card">
       <div className="product-image-container">
-        {!imageLoaded && !imageError && <Skeleton type="image" />}
-
-        {imageError ? (
-          <div
-            className="product-image-placeholder"
-            aria-label={`Imagem não disponível para ${product.title}`}
-          >
-            🎮
-          </div>
-        ) : (
-          <img
-            src={product.image}
-            alt={`Capa do jogo ${product.title}`}
-            className="product-image"
-            onLoad={handleImageLoad}
-            onError={handleImageError}
-            loading="lazy"
-            decoding="async"
-            style={{ display: imageLoaded ? "block" : "none" }}
-          />
-        )}
+        <OptimizedImage
+          src={product.image}
+          alt={`Capa do jogo ${product.title}`}
+          width="100%"
+          height="auto"
+        />
       </div>
 
       <div className="product-info">
         <h3 className="product-title" title={product.title}>
           {product.title}
         </h3>
-
         <div className="product-price">R$ {product.price.toFixed(2)}</div>
-
         {renderRating()}
         {renderTag()}
-
         <div className="product-actions">
           <Button
             variant="solid"

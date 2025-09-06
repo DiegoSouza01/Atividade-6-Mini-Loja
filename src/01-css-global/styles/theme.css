@@ -1,17 +1,18 @@
 :root {
   /* Cores do tema Final Fantasy (claro) */
-  --ff-primary: #1e90ff;
-  --ff-secondary: #4169e1;
-  --ff-accent: #00bfff;
-  --ff-background: #f0f8ff;
+  --ff-primary: #1e90ff; /* Azul dodger */
+  --ff-secondary: #4169e1; /* Azul royal */
+  --ff-accent: #00bfff; /* Azul céu profundo */
+  --ff-background: #f0f8ff; /* Fundo branco alicia */
   --ff-surface: #ffffff;
-  --ff-text: #2c3e50;
-  --ff-text-secondary: #7f8c8d;
-  --ff-border: #bdc3c7;
-  --ff-rating: #ffd700;
-  --ff-success: #27ae60;
-  --ff-warning: #f39c12;
-  --ff-error: #e74c3c;
+  --ff-surface-alt: #e9ecef;
+  --ff-text: #2c3e50; /* Cinza grafite */
+  --ff-text-secondary: #7f8c8d; /* Cinza médio */
+  --ff-border: #bdc3c7; /* Cinza claro */
+  --ff-rating: #ffd700; /* Dourado */
+  --ff-success: #27ae60; /* Verde esmeralda */
+  --ff-warning: #f39c12; /* Laranja abóbora */
+  --ff-error: #e74c3c; /* Vermelho */
 
   /* Espaçamentos */
   --ff-spacing-xs: 0.25rem;
@@ -24,33 +25,49 @@
   --ff-radius-sm: 0.25rem;
   --ff-radius-md: 0.5rem;
   --ff-radius-lg: 1rem;
+  --ff-radius-full: 9999px;
 
   /* Sombras */
   --ff-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   --ff-shadow-md: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   --ff-shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-
-  /* Transições */
-  --ff-transition: all 0.2s ease-in-out;
+  --ff-shadow-xl: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  --ff-skeleton-bg: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.05) 25%,
+    rgba(0, 0, 0, 0.1) 37%,
+    rgba(0, 0, 0, 0.05) 63%
+  );
+  --ff-transition: all 0.25s ease-in-out;
 }
 
 [data-theme="dark"] {
-  /* Cores do tema Final Fantasy (escuro) */
-  --ff-primary: #4169e1;
-  --ff-secondary: #1e90ff;
-  --ff-accent: #00bfff;
-  --ff-background: #1a1a2e;
-  --ff-surface: #16213e;
-  --ff-text: #e6e6e6;
-  --ff-text-secondary: #bdc3c7;
-  --ff-border: #34495e;
-  --ff-rating: #ffd700;
-  --ff-success: #2ecc71;
-  --ff-warning: #f39c12;
-  --ff-error: #e74c3c;
-
-  /* Ajustes de sombra para modo escuro */
-  --ff-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
-  --ff-shadow-md: 0 3px 6px rgba(0, 0, 0, 0.6), 0 3px 6px rgba(0, 0, 0, 0.5);
-  --ff-shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.7), 0 6px 6px rgba(0, 0, 0, 0.6);
+  --ff-primary: #87ceeb; /* Azul claro */
+  --ff-secondary: #4682b4; /* Azul aço */
+  --ff-accent: #b0e0e6; /* Azul pó */
+  --ff-background: #0d1a26; /* Fundo azul escuro */
+  --ff-surface: #1a2b3c;
+  --ff-surface-alt: #2c3e50;
+  --ff-text: #ecf0f1; /* Prata claro */
+  --ff-text-secondary: #bdc3c7; /* Cinza claro */
+  --ff-border: #34495e; /* Cinza escuro */
+  --ff-rating: #ffd700; /* Dourado */
+  --ff-success: #2ecc71; /* Verde esmeralda */
+  --ff-warning: #f1c40f; /* Amarelo */
+  --ff-error: #e74c3c; /* Vermelho */
+  --ff-shadow-sm: 0 1px 3px rgba(255, 255, 255, 0.12),
+    0 1px 2px rgba(255, 255, 255, 0.24);
+  --ff-shadow-md: 0 3px 6px rgba(255, 255, 255, 0.16),
+    0 3px 6px rgba(255, 255, 255, 0.23);
+  --ff-shadow-lg: 0 10px 20px rgba(255, 255, 255, 0.19),
+    0 6px 6px rgba(255, 255, 255, 0.23);
+  --ff-shadow-xl: 0 14px 28px rgba(255, 255, 255, 0.25),
+    0 10px 10px rgba(255, 255, 255, 0.22);
+  --ff-skeleton-bg: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.1) 37%,
+    rgba(255, 255, 255, 0.05) 63%
+  );
 }
