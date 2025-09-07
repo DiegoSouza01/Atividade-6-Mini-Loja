@@ -1,3 +1,5 @@
+/* Button.module.css */
+
 .button {
   padding: var(--ds-spacing-sm) var(--ds-spacing-md);
   font-size: 1rem;
@@ -31,20 +33,13 @@
 }
 
 .loading {
-  color: transparent;
-  pointer-events: none;
+  /* Não precisa mais de ::after para o texto, o JSX já lida com isso. */
+  pointer-events: none; /* Desabilita cliques durante o carregamento */
+  /* Remove color: transparent; para o texto 'Adicionando...' ficar visível. */
 }
 
-.loading::after {
-  content: "Carregando...";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: currentColor;
-  animation: pulse 1s infinite;
-}
-
+/* Opcional: Remova o @keyframes pulse se não precisar da animação */
+/*
 @keyframes pulse {
   0% {
     opacity: 0.2;
@@ -56,6 +51,7 @@
     opacity: 0.2;
   }
 }
+*/
 
 /* Opcional: Adicionar estilos para os outros variants se precisar */
 .outline {

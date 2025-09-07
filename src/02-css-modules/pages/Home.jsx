@@ -12,6 +12,7 @@ const Home = () => {
 
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [addingToCartId, setAddingToCartId] = useState(null);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -31,19 +32,24 @@ const Home = () => {
   };
 
   const addToCart = (product) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === product.id);
+    setAddingToCartId(product.id);
 
-      if (existingItem) {
-        return prevCart.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      }
+    setTimeout(() => {
+      setCart((prevCart) => {
+        const existingItem = prevCart.find((item) => item.id === product.id);
 
-      return [...prevCart, { ...product, quantity: 1 }];
-    });
+        if (existingItem) {
+          return prevCart.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          );
+        }
+
+        return [...prevCart, { ...product, quantity: 1 }];
+      });
+      setAddingToCartId(null);
+    }, 1000);
   };
 
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
@@ -54,23 +60,16 @@ const Home = () => {
 
       <div
         className="container"
-        style={{ maxWidth: "1200px", margin: "0 auto", padding: "1rem" }}
+        style={{ maxWidth: "1200px", margin: "0 auto" }}
       >
-        <div
-          className="productsGrid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "1.5rem",
-            padding: "1.5rem 0",
-          }}
-        >
+        <div className="productsGrid">
           {products.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
               onAddToCart={addToCart}
               loading={loading}
+              isAddingToCart={addingToCartId === product.id}
             />
           ))}
         </div>

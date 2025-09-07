@@ -20,7 +20,7 @@ const Button = ({
       onClick={onClick}
       {...props}
     >
-      {loading ? "Carregando..." : children}
+      {loading ? "Adicionando..." : children}
     </button>
   );
 };

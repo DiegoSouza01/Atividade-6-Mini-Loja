@@ -1,132 +1,79 @@
 .productCard {
+  max-width: 300px;
   background-color: var(--ds-surface);
-  border-radius: var(--ds-radius-lg);
+  border-radius: var(--ds-radius-md);
   box-shadow: var(--ds-shadow-md);
   overflow: hidden;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  transition: var(--ds-transition);
-  border: 1px solid var(--ds-border);
-  height: 100%; /* Garante que todos os cards tenham a mesma altura */
-}
-
-.productCard:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--ds-shadow-lg);
 }
 
 .productImageContainer {
-  position: relative;
   width: 100%;
-  height: 250px; /* Altura fixa para o container */
+  padding-bottom: 85%; /* Ajuste este valor se quiser uma proporção diferente */
+  position: relative;
   overflow: hidden;
-  background-color: var(--ds-background); /* Fundo para imagens transparentes */
+  border-top-left-radius: var(--ds-radius-md);
+  border-top-right-radius: var(--ds-radius-md);
+  /* Removendo margin-bottom daqui, pois o espaçamento será no productInfo */
 }
 
 .productImage {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Mantém a proporção sem cortar */
-  object-position: center;
+  object-fit: contain;
+  background-color: var(--ds-background);
   display: block;
-  transition: var(--ds-transition);
-}
-
-.productImage:hover {
-  transform: scale(1.05); /* Zoom suave no hover */
-}
-
-.productImagePlaceholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: var(--ds-surface-alt);
-  font-size: 3rem;
-  color: var(--ds-text-secondary);
 }
 
 .productInfo {
+  /* ADICIONAR OU AJUSTAR ESTA LINHA: */
+  margin-top: var(
+    --ds-spacing-sm
+  ); /* Adiciona um espaçamento de 0.5rem acima do bloco de informações */
+  /* Experimente 'var(--ds-spacing-md)' para mais espaço, ou '0.5rem' / '1rem' */
   padding: var(--ds-spacing-md);
   display: flex;
   flex-direction: column;
   gap: var(--ds-spacing-sm);
-  flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+  flex-grow: 1;
 }
 
 .productTitle {
   font-size: 1.1rem;
-  font-weight: bold;
-  color: var(--ds-text);
-  margin-bottom: var(--ds-spacing-xs);
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  font-weight: 600;
+  color: var(--ds-text); /* Usando a variável do tema */
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-height: 2.8rem; /* Altura fixa para 2 linhas */
-  line-height: 1.4;
+  margin-bottom: 1rem; /* Ajustado para usar gap no container */
 }
 
 .productPrice {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: bold;
-  color: var(--ds-primary);
-  margin: var(--ds-spacing-xs) 0;
+  color: var(--ds-primary); /* Usando a variável do tema */
+  margin-bottom: 0; /* Ajustado para usar gap no container */
 }
 
 .productRating {
-  display: flex;
-  gap: 0.2rem;
-  margin: var(--ds-spacing-xs) 0;
+  margin-bottom: 0; /* Ajustado para usar gap no container */
+  color: var(--ds-rating); /* Usando a variável do tema */
 }
 
 .productRatingStar {
-  color: var(--ds-border);
   font-size: 1.1rem;
-  line-height: 1;
+  color: var(
+    --ds-text-secondary
+  ); /* Estrela não preenchida, usando variável do tema */
 }
 
 .productRatingStar.filled {
-  color: var(--ds-rating);
-}
-
-.productActions {
-  margin-top: auto; /* Empurra o botão para a parte inferior */
-  padding-top: var(--ds-spacing-md);
-}
-
-/* Tags */
-.productTag {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding: 0.3rem 0.6rem;
-  border-radius: var(--ds-radius-sm);
-  color: var(--ds-surface);
-  background-color: var(--ds-primary);
-  margin-top: var(--ds-spacing-xs);
-}
-
-.productTagNew {
-  composes: productTag;
-  background-color: var(--ds-success);
-}
-
-.productTagPromo {
-  composes: productTag;
-  background-color: var(--ds-warning);
-}
-
-.productTagClassic {
-  composes: productTag;
-  background-color: var(--ds-secondary);
-}
-
-.productTagCollection {
-  composes: productTag;
-  background-color: var(--ds-accent);
+  color: var(--ds-rating); /* Estrela preenchida, usando variável do tema */
 }
 
 .srOnly {
@@ -138,5 +85,64 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
-  border: 0;
+  border-width: 0;
+}
+
+.productTag {
+  display: inline-block;
+  padding: var(--ds-spacing-xs) var(--ds-spacing-sm); /* Usando variáveis de espaçamento */
+  border-radius: var(--ds-radius-sm); /* Usando a variável do tema */
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff; /* Cor do texto da tag */
+  margin-bottom: 0; /* Ajustado para usar gap no container */
+  text-transform: uppercase; /* Deixa as tags em maiúsculas para consistência */
+}
+
+/* Cores específicas para as tags */
+.productTagNew {
+  composes: productTag;
+  background-color: var(--ds-success); /* Cor verde */
+}
+
+.productTagPromo {
+  composes: productTag;
+  background-color: var(--ds-warning); /* Cor laranja/amarela */
+}
+
+.productTagCollection {
+  composes: productTag;
+  background-color: var(--ds-primary); /* Cor azul ou outra do tema */
+}
+
+.productTagClassic {
+  composes: productTag;
+  background-color: var(--ds-secondary); /* Cor cinza/marrom */
+}
+
+/* Adicionando as novas tags */
+.productTagRemake {
+  composes: productTag;
+  background-color: var(
+    --ds-accent
+  ); /* Cor dourada/amarela, use uma cor que combine com Remake */
+  color: var(--ds-text); /* Texto mais escuro para contraste */
+}
+
+/* Se você tiver uma tag "Promoção" sem ser "Promo", ou se quiser um estilo diferente */
+.productTagPromocao {
+  /* Ajuste o nome da classe conforme a tag usada no data.js */
+  composes: productTag;
+  background-color: var(--ds-warning); /* Cor laranja/amarela */
+}
+
+.productActions {
+  margin-top: auto;
+  padding-top: var(--ds-spacing-sm); /* Usando a variável do tema */
+  display: flex;
+  justify-content: center;
+}
+
+.productActions button {
+  width: 100%;
 }
