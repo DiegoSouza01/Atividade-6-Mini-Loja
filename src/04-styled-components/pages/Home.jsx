@@ -2,13 +2,22 @@ import React, { useState, useEffect } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
-import { products } from "../data";
-import { lightTheme, darkTheme } from "../styles/theme";
+import { products } from "./data";
+import { lightTheme, darkTheme } from "./theme";
+
+// Estilos sem o GlobalStyle problemático
+const MainContainer = styled.div`
+  min-height: 100vh;
+  background-color: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.text};
+  transition: background-color 0.2s ease, color 0.2s ease;
+  padding-top: 70px; /* Espaço para a navbar fixa */
+`;
 
 const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: ${(props) => props.theme.spacing.md};
+  padding: ${(props) => props.theme.spacing.lg};
 `;
 
 const ProductsGrid = styled.div`
@@ -30,6 +39,15 @@ const ProductsGrid = styled.div`
   }
 `;
 
+const PageTitle = styled.h1`
+  text-align: center;
+  margin-bottom: ${(props) => props.theme.spacing.xl};
+  font-size: 2.5rem;
+  color: ${(props) => props.theme.primary};
+  font-family: "Arial Rounded MT Bold", sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+`;
+
 const Home = () => {
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("spyro-theme");
@@ -43,7 +61,12 @@ const Home = () => {
 
   useEffect(() => {
     localStorage.setItem("spyro-theme", theme);
-  }, [theme]);
+
+    // Aplica o tema diretamente no body
+    document.body.style.backgroundColor = currentTheme.background;
+    document.body.style.color = currentTheme.text;
+    document.body.style.transition = "all 0.2s ease-in-out";
+  }, [theme, currentTheme]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -77,17 +100,12 @@ const Home = () => {
 
   return (
     <ThemeProvider theme={currentTheme}>
-      <div
-        style={{
-          minHeight: "100vh",
-          backgroundColor: currentTheme.background,
-          color: currentTheme.text,
-          transition: "background-color 0.2s ease, color 0.2s ease",
-        }}
-      >
+      <MainContainer>
         <Navbar theme={theme} toggleTheme={toggleTheme} cartCount={cartCount} />
 
         <Container>
+          <PageTitle>🐉 Spyro's Treasure Collection</PageTitle>
+
           <ProductsGrid>
             {products.map((product) => (
               <ProductCard
@@ -99,7 +117,7 @@ const Home = () => {
             ))}
           </ProductsGrid>
         </Container>
-      </div>
+      </MainContainer>
     </ThemeProvider>
   );
 };

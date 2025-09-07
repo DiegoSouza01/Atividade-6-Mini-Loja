@@ -1,6 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 
+// Componente principal
+const Navbar = ({ theme, toggleTheme, cartCount }) => {
+  return (
+    <Nav>
+      <Logo>🐉 Spyro's Treasure</Logo>
+      <Actions>
+        <ThemeButton
+          onClick={toggleTheme}
+          aria-label={`Mudar para tema ${
+            theme === "light" ? "escuro" : "claro"
+          }`}
+        >
+          {theme === "light" ? "🌙" : "✨"}
+        </ThemeButton>
+        <CartButton aria-label={`Carrinho de compras com ${cartCount} itens`}>
+          💎
+          {cartCount > 0 && <CartBadge>{cartCount}</CartBadge>}
+        </CartButton>
+      </Actions>
+    </Nav>
+  );
+};
+
+// Estilos
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -9,9 +33,11 @@ const Nav = styled.nav`
     ${(props) => props.theme.spacing.xl};
   background-color: ${(props) => props.theme.surface};
   box-shadow: ${(props) => props.theme.shadow.sm};
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   transition: ${(props) => props.theme.transition};
   border-bottom: 2px solid ${(props) => props.theme.primary};
 `;
@@ -97,26 +123,5 @@ const CartBadge = styled.span`
   border: 1px solid white;
 `;
 
-const Navbar = ({ theme, toggleTheme, cartCount }) => {
-  return (
-    <Nav>
-      <Logo>🐉 Spyro's Treasure</Logo>
-      <Actions>
-        <ThemeButton
-          onClick={toggleTheme}
-          aria-label={`Mudar para tema ${
-            theme === "light" ? "escuro" : "claro"
-          }`}
-        >
-          {theme === "light" ? "🌙" : "✨"}
-        </ThemeButton>
-        <CartButton aria-label={`Carrinho de compras com ${cartCount} itens`}>
-          💎
-          {cartCount > 0 && <CartBadge>{cartCount}</CartBadge>}
-        </CartButton>
-      </Actions>
-    </Nav>
-  );
-};
-
+// EXPORTAÇÃO PADRÃO ESSENCIAL - Esta linha deve estar no final
 export default Navbar;
