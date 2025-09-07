@@ -57,6 +57,7 @@ const Home = () => {
         style={{ maxWidth: "1200px", margin: "0 auto", padding: "1rem" }}
       >
         <div
+          className="productsGrid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr",

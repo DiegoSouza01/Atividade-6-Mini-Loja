@@ -1,3 +1,5 @@
+const BASE_URL = import.meta.env.BASE_URL;
+
 export const products = [
   {
     id: 1,
@@ -5,7 +7,7 @@ export const products = [
     price: 199.99,
     rating: 5,
     tag: "Clássico",
-    image: "/assets/dark_souls_1.webp",
+    image: `${BASE_URL}assets/Dark_Souls_1_capa.webp`,
   },
   {
     id: 2,
@@ -13,7 +15,7 @@ export const products = [
     price: 179.99,
     rating: 4,
     tag: "Promo",
-    image: "/assets/dark_souls_2.webp",
+    image: `${BASE_URL}assets/Dark_Souls_2_capa.webp`,
   },
   {
     id: 3,
@@ -21,7 +23,7 @@ export const products = [
     price: 219.99,
     rating: 5,
     tag: "Novo",
-    image: "/assets/dark_souls_3.webp",
+    image: `${BASE_URL}assets/Dark_Souls_3_capa.webp`,
   },
   {
     id: 4,
@@ -29,7 +31,7 @@ export const products = [
     price: 189.99,
     rating: 5,
     tag: "Remake",
-    image: "/assets/Demons_Souls_remake_cover_art.webp",
+    image: `${BASE_URL}assets/Demons_Souls_remake_cover_art.webp`,
   },
   {
     id: 5,
@@ -37,7 +39,7 @@ export const products = [
     price: 499.99,
     rating: 5,
     tag: "Coleção",
-    image: "/assets/Elden_Ring_capa.webp",
+    image: `${BASE_URL}assets/Elden_Ring_capa.webp`,
   },
   {
     id: 6,
@@ -45,6 +47,6 @@ export const products = [
     price: 159.99,
     rating: 4,
     tag: "Promoção",
-    image: "/assets/Sekiro_art.webp",
+    image: `${BASE_URL}assets/Sekiro_art.webp`,
   },
 ];

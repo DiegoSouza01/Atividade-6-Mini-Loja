@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./Button";
 import Skeleton from "./Skeleton";
 import styles from "./ProductCard.module.css";
@@ -6,6 +6,11 @@ import styles from "./ProductCard.module.css";
 const ProductCard = ({ product, onAddToCart, loading = false }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+
+  useEffect(() => {
+    console.log("🖼️ Image URL:", product.image);
+    console.log("📁 Full URL:", window.location.origin + product.image);
+  }, [product]);
 
   if (loading) {
     return (
@@ -24,11 +29,17 @@ const ProductCard = ({ product, onAddToCart, loading = false }) => {
   }
 
   const handleImageLoad = () => {
+    console.log("✅ Image loaded successfully:", product.image);
     setImageLoaded(true);
     setImageError(false);
   };
 
-  const handleImageError = () => {
+  const handleImageError = (e) => {
+    console.error(
+      "❌ IMAGE LOAD ERROR:",
+      window.location.origin + product.image
+    );
+    console.error("Error event:", e);
     setImageError(true);
     setImageLoaded(true);
   };
@@ -94,7 +105,7 @@ const ProductCard = ({ product, onAddToCart, loading = false }) => {
           </div>
         ) : (
           <img
-            src={product.image}
+            src={window.location.origin + product.image}
             alt={`Capa do jogo ${product.title}`}
             className={styles.productImage}
             onLoad={handleImageLoad}

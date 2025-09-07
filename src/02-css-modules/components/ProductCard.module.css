@@ -7,6 +7,7 @@
   flex-direction: column;
   transition: var(--ds-transition);
   border: 1px solid var(--ds-border);
+  height: 100%; /* Garante que todos os cards tenham a mesma altura */
 }
 
 .productCard:hover {
@@ -17,15 +18,22 @@
 .productImageContainer {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 250px; /* Altura fixa para o container */
   overflow: hidden;
+  background-color: var(--ds-background); /* Fundo para imagens transparentes */
 }
 
 .productImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* Mantém a proporção sem cortar */
+  object-position: center;
   display: block;
+  transition: var(--ds-transition);
+}
+
+.productImage:hover {
+  transform: scale(1.05); /* Zoom suave no hover */
 }
 
 .productImagePlaceholder {
@@ -44,33 +52,39 @@
   display: flex;
   flex-direction: column;
   gap: var(--ds-spacing-sm);
+  flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
 }
 
 .productTitle {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: bold;
   color: var(--ds-text);
   margin-bottom: var(--ds-spacing-xs);
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-height: 2.8rem; /* Altura fixa para 2 linhas */
+  line-height: 1.4;
 }
 
 .productPrice {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: var(--ds-primary);
+  margin: var(--ds-spacing-xs) 0;
 }
 
 .productRating {
   display: flex;
-  gap: 0.25rem;
-  color: var(--ds-rating);
+  gap: 0.2rem;
+  margin: var(--ds-spacing-xs) 0;
 }
 
 .productRatingStar {
   color: var(--ds-border);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   line-height: 1;
 }
 
@@ -80,29 +94,49 @@
 
 .productActions {
   margin-top: auto; /* Empurra o botão para a parte inferior */
+  padding-top: var(--ds-spacing-md);
 }
 
-.tag {
+/* Tags */
+.productTag {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: bold;
-  padding: 0.25rem 0.5rem;
+  padding: 0.3rem 0.6rem;
   border-radius: var(--ds-radius-sm);
   color: var(--ds-surface);
+  background-color: var(--ds-primary);
+  margin-top: var(--ds-spacing-xs);
 }
 
-.tag.novo {
+.productTagNew {
+  composes: productTag;
   background-color: var(--ds-success);
 }
 
-.tag.promo {
+.productTagPromo {
+  composes: productTag;
   background-color: var(--ds-warning);
 }
 
-.tag.classico {
+.productTagClassic {
+  composes: productTag;
   background-color: var(--ds-secondary);
 }
 
-.tag.remake {
+.productTagCollection {
+  composes: productTag;
   background-color: var(--ds-accent);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

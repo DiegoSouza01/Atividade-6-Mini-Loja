@@ -6,4 +6,12 @@ export default defineConfig({
   css: {
     postcss: "./postcss.config.js",
   },
+  base: "/",
+  server: {
+    // Configuração para servir arquivos estáticos corretamente
+    middlewareMode: false, // Garante que o Vite sirva arquivos estáticos
+  },
+  build: {
+    assetsDir: "assets", // Diretório de assets na build
+  },
 });
