@@ -26,7 +26,7 @@ const OptimizedImage = ({ src, alt, className, ...props }) => {
 
       {error && (
         <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-4xl">
-          🎮
+          
         </div>
       )}
     </div>

@@ -81,7 +81,7 @@ const Home = () => {
       }
     });
 
-    // Mostrar notificação
+    
     setShowCartNotification(true);
     setTimeout(() => setShowCartNotification(false), 2000);
   };
@@ -109,7 +109,7 @@ const Home = () => {
       )}
       <div className="pt-24 pb-12 px-4 max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-crash-primary dark:text-crash-orange-400 mb-8 animate-pulse">
-          🎮 LOJA CRASH BANDICOOT 🍊
+          LOJA CRASH BANDICOOT 🍊
         </h1>
 
         <p className="text-center text-crash-brown-600 dark:text-crash-orange-200 mb-8 text-lg">

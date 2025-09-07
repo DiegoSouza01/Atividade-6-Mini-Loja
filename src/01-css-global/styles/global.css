@@ -368,6 +368,7 @@ body {
   color: var(--ff-text);
   font-size: 1.2rem;
   margin-bottom: var(--ff-spacing-md);
+  padding: 1rem;
 }
 
 .style-buttons {

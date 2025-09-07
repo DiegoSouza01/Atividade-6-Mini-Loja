@@ -23,7 +23,7 @@ const Navbar = ({ cartCount, onCartClick }) => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center p-6 bg-crash-sand dark:bg-crash-brown-800 shadow-md dark:shadow-crash-brown-900 transition-colors duration-200 border-b-2 border-crash-orange-300">
       <div className="text-2xl font-bold text-crash-primary dark:text-crash-orange-400 flex items-center gap-2">
-        <span className="text-3xl">🎮</span>
+        <span className="text-3xl"></span>
         Crash Store
       </div>
 

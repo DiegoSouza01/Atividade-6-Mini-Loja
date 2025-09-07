@@ -5,22 +5,22 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Tema Crash Bandicoot - Cores oficiais
+    
         crash: {
-          // Laranjas (cores principais do Crash)
+    
           orange: {
             50: "#FFF3E0",
             100: "#FFE0B2",
             200: "#FFCC80",
             300: "#FFB74D",
             400: "#FFA726",
-            500: "#FF9800", // Laranja principal
+            500: "#FF9800", 
             600: "#FB8C00",
             700: "#F57C00",
             800: "#EF6C00",
             900: "#E65100",
           },
-          // Azuis (cores do Coco e elementos aquáticos)
+        
           blue: {
             50: "#E3F2FD",
             100: "#BBDEFB",
@@ -33,7 +33,7 @@ export default {
             800: "#1565C0",
             900: "#0D47A1",
           },
-          // Verdes (natureza da ilha Wumpa)
+     
           green: {
             50: "#E8F5E9",
             100: "#C8E6C9",
@@ -46,7 +46,6 @@ export default {
             800: "#2E7D32",
             900: "#1B5E20",
           },
-          // Marrons (terra e troncos)
           brown: {
             50: "#EFEBE9",
             100: "#D7CCC8",
@@ -59,7 +58,6 @@ export default {
             800: "#4E342E",
             900: "#3E2723",
           },
-          // Roxos (elementos mágicos e frutas Wumpa)
           purple: {
             50: "#F3E5F5",
             100: "#E1BEE7",
@@ -72,30 +70,30 @@ export default {
             800: "#6A1B9A",
             900: "#4A148C",
           },
-          // Cores específicas do tema
-          primary: "#FF9800", // Laranja Crash
-          secondary: "#2196F3", // Azul Coco
-          accent: "#4CAF50", // Verde natureza
-          background: "#FFF8E1", // Bege claro (areia)
-          surface: "#FFFFFF", // Branco
-          text: "#3E2723", // Marrom escuro
-          error: "#F44336", // Vermelho
-          success: "#4CAF50", // Verde
-          warning: "#FFC107", // Amarelo
-          rating: "#FF9800", // Laranja para estrelas
+         
+          primary: "#FF9800", 
+          secondary: "#2196F3", 
+          accent: "#4CAF50",
+          background: "#FFF8E1", 
+          surface: "#FFFFFF", 
+          text: "#3E2723", 
+          error: "#F44336", 
+          success: "#4CAF50", 
+          warning: "#FFC107",
+          rating: "#FF9800", 
         },
       },
       backgroundColor: {
-        "crash-sand": "#FFF8E1", // Cor de areia
-        "crash-sky": "#E3F2FD", // Azul céu
-        "crash-jungle": "#E8F5E9", // Verde selva
+        "crash-sand": "#FFF8E1", 
+        "crash-sky": "#E3F2FD",
+        "crash-jungle": "#E8F5E9", 
       },
       textColor: {
-        "crash-dark": "#3E2723", // Marrom escuro
-        "crash-orange": "#FF9800", // Laranja
+        "crash-dark": "#3E2723", 
+        "crash-orange": "#FF9800", 
       },
       borderColor: {
-        "crash-border": "#FFCC80", // Laranja claro para bordas
+        "crash-border": "#FFCC80", 
       },
     },
   },

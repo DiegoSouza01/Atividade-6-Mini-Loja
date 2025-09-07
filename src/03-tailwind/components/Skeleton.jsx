@@ -5,7 +5,7 @@ const Skeleton = ({ type = "text", width, height, style }) => {
 
   const typeClasses = {
     text: "h-4 w-full mb-2",
-    image: "w-full aspect-square", // ← Mude de h-48 para aspect-square
+    image: "w-full aspect-square",
     button: "w-full h-10",
   };
 
