@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import OptimizedImage from "./OptimizedImage";
+// A importação do OptimizedImage não é mais necessária
 
-const ProductCard = ({ product, onAddToCart }) => {
+const ProductCard = ({ product, onAddToCart, loading = false }) => {
   const [isAdding, setIsAdding] = useState(false);
 
   const handleAddToCart = () => {
@@ -16,7 +16,6 @@ const ProductCard = ({ product, onAddToCart }) => {
 
   const renderRating = () => {
     const stars = [];
-    // Converte o rating para um número, garantindo a comparação correta.
     const ratingValue = Number(product.rating);
 
     for (let i = 0; i < 5; i++) {
@@ -45,11 +44,11 @@ const ProductCard = ({ product, onAddToCart }) => {
   return (
     <div className="product-card">
       <div className="product-image-container">
-        <OptimizedImage
-          src={product.img}
+        <img
+          src={product.img} // Usa a propriedade 'img' do data.js
           alt={`Capa do jogo ${product.title}`}
-          width="100%"
-          height="auto"
+          className="product-image"
+          loading="lazy"
         />
       </div>
 
@@ -69,7 +68,7 @@ const ProductCard = ({ product, onAddToCart }) => {
               product.title
             } ao carrinho por R$ ${product.price.toFixed(2)}`}
           >
-            Adicionar ao carrinho
+            Adicionar ao Carrinho
           </Button>
         </div>
       </div>

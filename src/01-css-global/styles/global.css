@@ -167,36 +167,50 @@ body {
 }
 
 .product-tag {
-  font-size: 0.75rem;
-  font-weight: bold;
+  display: inline-block;
+  padding: var(--ds-spacing-xs) var(--ds-spacing-sm);
+  border-radius: var(--ds-radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff; /* Cor do texto padrão para tags */
   text-transform: uppercase;
-  padding: 2px 6px;
-  border-radius: var(--ff-radius-sm);
-  align-self: flex-start;
-  margin-bottom: var(--ff-spacing-sm);
+  margin-top: var(
+    --ds-spacing-sm
+  ); /* Adiciona um pequeno espaço acima da tag */
+  margin-right: var(--ds-spacing-sm);
+  margin-bottom: var(
+    --ff-spacing-md
+  ); /* Espaço entre tags se houver mais de uma */
 }
 
-.product-tag.novo {
-  background-color: var(--ff-success);
-  color: white;
+/* Cores específicas para as tags */
+.novo {
+  background-color: var(--ds-success); /* Cor verde para 'Novo' */
+  color: var(--ds-text-dark); /* Ou #fff */
 }
 
-.product-tag.promo {
-  background-color: var(--ff-warning);
-  color: white;
+.promo {
+  background-color: var(--ds-warning); /* Cor laranja para 'Promo' */
+  color: var(--ds-text-dark); /* Ou #fff */
 }
 
-.product-tag.classico {
-  background-color: var(--ff-secondary);
-  color: white;
+.colecao {
+  background-color: var(
+    --ds-primary
+  ); /* Exemplo: Cor primária do tema para 'Coleção' */
 }
 
-.product-actions {
-  margin-top: auto;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: var(--ff-spacing-sm);
+.classico {
+  background-color: var(
+    --ds-secondary
+  ); /* Exemplo: Cor secundária do tema para 'Clássico' */
+}
+
+.remaster {
+  background-color: var(
+    --ds-accent
+  ); /* Exemplo: Cor de destaque do tema para 'Remaster' */
+  color: var(--ds-text); /* Texto mais escuro para contraste no modo claro */
 }
 
 /* Botões */
@@ -342,4 +356,53 @@ body {
   background-color: var(--ff-primary);
   color: white;
   border-color: var(--ff-primary);
+}
+
+/* Ajuste para Navbar Fixo */
+.main-content-wrapper {
+  padding-top: 5rem; /* Ajuste este valor para a altura exata do seu Navbar */
+  /* Você pode precisar de um padding-bottom para a parte inferior da página, se necessário */
+}
+
+/* Estilos para o StyleSelector (se não estiverem em outro lugar) */
+.style-selector {
+  background-color: var(--ff-surface); /* Ou outra cor de fundo */
+  padding: var(--ff-spacing-md);
+  border-bottom: 1px solid var(--ff-border); /* Uma linha divisória sutil */
+  margin-bottom: var(
+    --ff-spacing-lg
+  ); /* Espaço entre o seletor e o conteúdo da página */
+}
+
+.style-selector h2 {
+  color: var(--ff-text);
+  font-size: 1.2rem;
+  margin-bottom: var(--ff-spacing-md);
+}
+
+.style-buttons {
+  display: flex;
+  gap: var(--ff-spacing-sm);
+  flex-wrap: wrap; /* Para quebrar em várias linhas em telas menores */
+}
+
+.style-button {
+  padding: var(--ff-spacing-sm) var(--ff-spacing-md);
+  border: 1px solid var(--ff-border);
+  border-radius: var(--ff-radius-md);
+  background-color: var(--ff-background);
+  color: var(--ff-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.style-button.active {
+  background-color: var(--ff-primary); /* Cor ativa para o botão */
+  color: #fff; /* Texto branco no botão ativo */
+  border-color: var(--ff-primary);
+}
+
+.style-button:hover:not(.active) {
+  background-color: var(--ff-border);
+  color: var(--ff-text);
 }
