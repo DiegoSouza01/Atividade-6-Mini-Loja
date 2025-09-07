@@ -3,7 +3,6 @@ import Button from "./Button";
 import Skeleton from "./Skeleton";
 import styles from "./ProductCard.module.css";
 
-// Adicione a propriedade 'isAddingToCart' no destructuring
 const ProductCard = ({
   product,
   onAddToCart,

@@ -19,7 +19,7 @@
   color: var(--ds-primary);
   text-shadow: var(--ds-text-shadow);
   text-transform: uppercase;
-  font-family: "Times New Roman", Times, serif; /* Fonte que remete a Dark Souls */
+  font-family: "Times New Roman", Times, serif;
 }
 
 .navbarActions {

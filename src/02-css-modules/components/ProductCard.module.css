@@ -11,12 +11,11 @@
 
 .productImageContainer {
   width: 100%;
-  padding-bottom: 85%; /* Ajuste este valor se quiser uma proporção diferente */
+  padding-bottom: 85%; 
   position: relative;
   overflow: hidden;
   border-top-left-radius: var(--ds-radius-md);
   border-top-right-radius: var(--ds-radius-md);
-  /* Removendo margin-bottom daqui, pois o espaçamento será no productInfo */
 }
 
 .productImage {
@@ -31,11 +30,9 @@
 }
 
 .productInfo {
-  /* ADICIONAR OU AJUSTAR ESTA LINHA: */
   margin-top: var(
     --ds-spacing-sm
-  ); /* Adiciona um espaçamento de 0.5rem acima do bloco de informações */
-  /* Experimente 'var(--ds-spacing-md)' para mais espaço, ou '0.5rem' / '1rem' */
+  );
   padding: var(--ds-spacing-md);
   display: flex;
   flex-direction: column;
@@ -46,34 +43,34 @@
 .productTitle {
   font-size: 1.1rem;
   font-weight: 600;
-  color: var(--ds-text); /* Usando a variável do tema */
+  color: var(--ds-text); 
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 1rem; /* Ajustado para usar gap no container */
+  margin-bottom: 1rem; 
 }
 
 .productPrice {
   font-size: 1.25rem;
   font-weight: bold;
-  color: var(--ds-primary); /* Usando a variável do tema */
-  margin-bottom: 0; /* Ajustado para usar gap no container */
+  color: var(--ds-primary); 
+  margin-bottom: 0; 
 }
 
 .productRating {
-  margin-bottom: 0; /* Ajustado para usar gap no container */
-  color: var(--ds-rating); /* Usando a variável do tema */
+  margin-bottom: 0; 
+  color: var(--ds-rating); 
 }
 
 .productRatingStar {
   font-size: 1.1rem;
   color: var(
     --ds-text-secondary
-  ); /* Estrela não preenchida, usando variável do tema */
+  );
 }
 
 .productRatingStar.filled {
-  color: var(--ds-rating); /* Estrela preenchida, usando variável do tema */
+  color: var(--ds-rating); 
 }
 
 .srOnly {
@@ -90,55 +87,52 @@
 
 .productTag {
   display: inline-block;
-  padding: var(--ds-spacing-xs) var(--ds-spacing-sm); /* Usando variáveis de espaçamento */
-  border-radius: var(--ds-radius-sm); /* Usando a variável do tema */
+  padding: var(--ds-spacing-xs) var(--ds-spacing-sm); 
+  border-radius: var(--ds-radius-sm); 
   font-size: 0.8rem;
   font-weight: 600;
-  color: #fff; /* Cor do texto da tag */
-  margin-bottom: 0; /* Ajustado para usar gap no container */
-  text-transform: uppercase; /* Deixa as tags em maiúsculas para consistência */
+  color: #fff; 
+  margin-bottom: 0; 
+  text-transform: uppercase; 
 }
 
-/* Cores específicas para as tags */
 .productTagNew {
   composes: productTag;
-  background-color: var(--ds-success); /* Cor verde */
+  background-color: var(--ds-success); 
 }
 
 .productTagPromo {
   composes: productTag;
-  background-color: var(--ds-warning); /* Cor laranja/amarela */
+  background-color: var(--ds-warning); 
 }
 
 .productTagCollection {
   composes: productTag;
-  background-color: var(--ds-primary); /* Cor azul ou outra do tema */
+  background-color: var(--ds-primary); 
 }
 
 .productTagClassic {
   composes: productTag;
-  background-color: var(--ds-secondary); /* Cor cinza/marrom */
+  background-color: var(--ds-secondary); 
 }
 
-/* Adicionando as novas tags */
 .productTagRemake {
   composes: productTag;
   background-color: var(
     --ds-accent
-  ); /* Cor dourada/amarela, use uma cor que combine com Remake */
-  color: var(--ds-text); /* Texto mais escuro para contraste */
+  ); 
+  color: var(--ds-text); 
 }
 
-/* Se você tiver uma tag "Promoção" sem ser "Promo", ou se quiser um estilo diferente */
+
 .productTagPromocao {
-  /* Ajuste o nome da classe conforme a tag usada no data.js */
   composes: productTag;
-  background-color: var(--ds-warning); /* Cor laranja/amarela */
+  background-color: var(--ds-warning);
 }
 
 .productActions {
   margin-top: auto;
-  padding-top: var(--ds-spacing-sm); /* Usando a variável do tema */
+  padding-top: var(--ds-spacing-sm);  
   display: flex;
   justify-content: center;
 }
