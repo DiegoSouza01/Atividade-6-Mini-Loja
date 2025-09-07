@@ -8,10 +8,10 @@ export default defineConfig({
   },
   base: "/",
   server: {
-    // Configuração para servir arquivos estáticos corretamente
-    middlewareMode: false, // Garante que o Vite sirva arquivos estáticos
+    
+    middlewareMode: false,
   },
   build: {
-    assetsDir: "assets", // Diretório de assets na build
+    assetsDir: "assets",
   },
 });

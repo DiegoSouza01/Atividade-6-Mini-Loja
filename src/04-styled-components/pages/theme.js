@@ -1,13 +1,13 @@
 export const lightTheme = {
-  primary: "#8A2BE2", // Roxo - cor do Spyro
-  secondary: "#FF6B8B", // Rosa
-  accent: "#00CED1", // Ciano
-  background: "#F0F8FF", // Azul claro
+  primary: "#8A2BE2",
+  secondary: "#FF6B8B", 
+  accent: "#00CED1",
+  background: "#F0F8FF", 
   surface: "#FFFFFF",
   text: "#2C3E50",
   textSecondary: "#7F8C8D",
-  border: "#DDA0DD", // Ameixa claro
-  rating: "#FFD700", // Ouro
+  border: "#DDA0DD", 
+  rating: "#FFD700", 
   success: "#27AE60",
   warning: "#F39C12",
   error: "#E74C3C",
@@ -36,14 +36,14 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  primary: "#9370DB", // Roxo médio
-  secondary: "#FF69B4", // Rosa quente
-  accent: "#20B2AA", // Verde-azulado claro
-  background: "#1A1A2E", // Azul muito escuro
+  primary: "#9370DB", 
+  secondary: "#FF69B4",
+  accent: "#20B2AA", 
+  background: "#1A1A2E", 
   surface: "#16213E",
   text: "#E6E6E6",
   textSecondary: "#BDC3C7",
-  border: "#6A5ACD", // Ameixa
+  border: "#6A5ACD",
   rating: "#FFD700",
   success: "#2ECC71",
   warning: "#F39C12",

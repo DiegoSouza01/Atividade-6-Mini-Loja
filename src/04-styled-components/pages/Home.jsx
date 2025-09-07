@@ -5,7 +5,6 @@ import ProductCard from "../components/ProductCard";
 import { products } from "./data";
 import { lightTheme, darkTheme } from "./theme";
 
-// Estilos sem o GlobalStyle problemático
 const MainContainer = styled.div`
   min-height: 100vh;
   background-color: ${(props) => props.theme.background};
@@ -62,7 +61,6 @@ const Home = () => {
   useEffect(() => {
     localStorage.setItem("spyro-theme", theme);
 
-    // Aplica o tema diretamente no body
     document.body.style.backgroundColor = currentTheme.background;
     document.body.style.color = currentTheme.text;
     document.body.style.transition = "all 0.2s ease-in-out";
@@ -104,7 +102,7 @@ const Home = () => {
         <Navbar theme={theme} toggleTheme={toggleTheme} cartCount={cartCount} />
 
         <Container>
-          <PageTitle>🐉 Spyro's Treasure Collection</PageTitle>
+          <PageTitle> Spyro's Treasure Collection</PageTitle>
 
           <ProductsGrid>
             {products.map((product) => (

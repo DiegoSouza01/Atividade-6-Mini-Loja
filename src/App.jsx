@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Adicionei uma div principal com a classe 'main-content-wrapper' para o espaçamento */}
+        {}
         <div className="main-content-wrapper">
           <StyleSelector
             activeStyle={activeStyle}

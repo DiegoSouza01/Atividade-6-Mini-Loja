@@ -3,7 +3,6 @@ import styled, { keyframes, css } from "styled-components";
 import Button from "./Button";
 import Skeleton from "./Skeleton";
 
-// Animações
 const fadeInOut = keyframes`
   0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
   50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
@@ -15,7 +14,6 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
-// Estilos
 const Card = styled.div`
   background-color: ${(props) => props.theme.surface};
   border-radius: ${(props) => props.theme.radius.lg};
@@ -207,14 +205,12 @@ const ProductCard = ({ product, onAddToCart, loading = false }) => {
   const [showSuccess, setShowSuccess] = useState(false);
   const imgRef = useRef(null);
 
-  // Efeito simplificado para carregamento de imagens
   useEffect(() => {
     if (!product.image) {
       setImageError(true);
       return;
     }
 
-    // Timeout para fallback se a imagem demorar muito
     const timeout = setTimeout(() => {
       if (!imageLoaded && !imageError) {
         setImageError(true);
@@ -294,7 +290,7 @@ const ProductCard = ({ product, onAddToCart, loading = false }) => {
           <Placeholder
             aria-label={`Imagem não disponível para ${product.title}`}
           >
-            🐉
+            
           </Placeholder>
         ) : (
           <Image

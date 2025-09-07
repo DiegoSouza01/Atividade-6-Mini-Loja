@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-// Componente principal
 const Navbar = ({ theme, toggleTheme, cartCount }) => {
   return (
     <Nav>
-      <Logo>🐉 Spyro's Treasure</Logo>
+      <Logo> Spyro's Treasure</Logo>
       <Actions>
         <ThemeButton
           onClick={toggleTheme}
@@ -24,7 +23,6 @@ const Navbar = ({ theme, toggleTheme, cartCount }) => {
   );
 };
 
-// Estilos
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -123,5 +121,4 @@ const CartBadge = styled.span`
   border: 1px solid white;
 `;
 
-// EXPORTAÇÃO PADRÃO ESSENCIAL - Esta linha deve estar no final
 export default Navbar;

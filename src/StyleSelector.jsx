@@ -1,8 +1,6 @@
-// src/components/StyleSelector.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-// Array centralizado com as informações de cada estilo
 const styles = [
   { id: "css-global", name: "CSS Global", path: "/01-css-global" },
   { id: "css-modules", name: "CSS Modules", path: "/02-css-modules" },
