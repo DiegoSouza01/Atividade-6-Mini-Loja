@@ -43,7 +43,7 @@ export const products = [
   },
   {
     id: 6,
-    title: "Sekiro",
+    title: "Sekiro shadows die twice",
     price: 159.99,
     rating: 4,
     tag: "Promoção",

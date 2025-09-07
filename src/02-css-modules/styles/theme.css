@@ -5,7 +5,7 @@
   --ds-accent: #daa520;
   --ds-background: #f5f5dc;
   --ds-surface: #fffaf0;
-  --ds-text: #2c3e50;
+  --ds-text: #c4c22c;
   --ds-text-secondary: #7f8c8d;
   --ds-border: #a9a9a9;
   --ds-rating: #daa520;
@@ -35,7 +35,7 @@
 
 [data-theme="dark"] {
   /* Cores do tema Dark  */
-  --ds-primary: #8b0000;
+  --ds-primary: #fc0f0f;
   --ds-secondary: #654321;
   --ds-accent: #daa520;
   --ds-background: #1a1a1a;
