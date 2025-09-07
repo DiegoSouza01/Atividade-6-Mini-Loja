@@ -39,7 +39,7 @@ export const products = [
     title: "Final Fantasy XIII",
     price: 149.99,
     rating: 4,
-    tag: "Clássico",
+    tag: "Classico",
     img: `${BASE_URL}assets/Final_Fantasy_XIII_EU_box_art.webp`,
   },
   {

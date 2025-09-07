@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Button from "./Button";
-// A importação do OptimizedImage não é mais necessária
 
 const ProductCard = ({ product, onAddToCart, loading = false }) => {
   const [isAdding, setIsAdding] = useState(false);
@@ -45,7 +44,7 @@ const ProductCard = ({ product, onAddToCart, loading = false }) => {
     <div className="product-card">
       <div className="product-image-container">
         <img
-          src={product.img} // Usa a propriedade 'img' do data.js
+          src={product.img}
           alt={`Capa do jogo ${product.title}`}
           className="product-image"
           loading="lazy"

@@ -1,18 +1,18 @@
 :root {
-  /* Cores do tema Final Fantasy (claro) */
-  --ff-primary: #1e90ff; /* Azul dodger */
-  --ff-secondary: #4169e1; /* Azul royal */
-  --ff-accent: #00bfff; /* Azul céu profundo */
-  --ff-background: #f0f8ff; /* Fundo branco alicia */
+  /* Cores Final Fantasy */
+  --ff-primary: #1e90ff; 
+  --ff-secondary: #4169e1; 
+  --ff-accent: #00bfff; 
+  --ff-background: #f0f8ff; 
   --ff-surface: #ffffff;
   --ff-surface-alt: #e9ecef;
-  --ff-text: #2c3e50; /* Cinza grafite */
-  --ff-text-secondary: #7f8c8d; /* Cinza médio */
-  --ff-border: #bdc3c7; /* Cinza claro */
-  --ff-rating: #ffd700; /* Dourado */
-  --ff-success: #27ae60; /* Verde esmeralda */
-  --ff-warning: #f39c12; /* Laranja abóbora */
-  --ff-error: #e74c3c; /* Vermelho */
+  --ff-text: #2c3e50; 
+  --ff-text-secondary: #7f8c8d; 
+  --ff-border: #bdc3c7; 
+  --ff-rating: #ffd700; 
+  --ff-success: #27ae60; 
+  --ff-warning: #f39c12; 
+  --ff-error: #e74c3c;
 
   /* Espaçamentos */
   --ff-spacing-xs: 0.25rem;
@@ -43,20 +43,20 @@
 }
 
 [data-theme="dark"] {
-  /* Cores do tema Final Fantasy (escuro) */
-  --ff-primary: #87ceeb; /* Azul claro */
-  --ff-secondary: #4682b4; /* Azul aço */
-  --ff-accent: #b0e0e6; /* Azul pó */
-  --ff-background: #0d1a26; /* Fundo azul escuro */
+  /* Cores do tema  Dark */
+  --ff-primary: #87ceeb; 
+  --ff-secondary: #4682b4; 
+  --ff-accent: #b0e0e6; 
+  --ff-background: #0d1a26; 
   --ff-surface: #1a2b3c;
   --ff-surface-alt: #2c3e50;
-  --ff-text: #e0e0e0; /* Cinza claro */
-  --ff-text-secondary: #b0b0b0; /* Cinza médio claro */
-  --ff-border: #444; /* Cinza escuro */
-  --ff-rating: #ffd700; /* Dourado */
-  --ff-success: #3cb371; /* Verde mar */
-  --ff-warning: #ffa500; /* Laranja */
-  --ff-error: #dc143c; /* Carmesim */
+  --ff-text: #e0e0e0; 
+  --ff-text-secondary: #b0b0b0; 
+  --ff-border: #444; 
+  --ff-rating: #ffd700; 
+  --ff-success: #3cb371; 
+  --ff-warning: #ffa500; 
+  --ff-error: #dc143c; 
   --ff-shadow-sm: 0 1px 3px rgba(255, 255, 255, 0.1),
     0 1px 2px rgba(255, 255, 255, 0.1);
   --ff-shadow-md: 0 3px 6px rgba(255, 255, 255, 0.1),
